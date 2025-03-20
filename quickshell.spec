@@ -5,7 +5,7 @@
 
 Name:               quickshell
 Version:            0^%{snapdate}g%(c=%{commit}; echo ${c:0:7})
-Release:            2
+Release:            3
 Summary:            Flexible QtQuick based desktop shell toolkit
 
 License:            LGPL-3.0-only AND GPL-3.0-only
@@ -59,6 +59,7 @@ Requires:      pkgconfig(Qt6Quick)
 Requires:      pkgconfig(Qt6QuickControls2)
 Requires:      pkgconfig(Qt6Widgets)
 Requires:      lib64Qt6WaylandClient
+Requires:      pkgconfig(qt6-svg)
 
 %description
 
