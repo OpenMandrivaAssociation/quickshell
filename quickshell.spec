@@ -59,7 +59,7 @@ Requires:      pkgconfig(Qt6Quick)
 Requires:      pkgconfig(Qt6QuickControls2)
 Requires:      pkgconfig(Qt6Widgets)
 Requires:      pkgconfig(Qt6ShaderTools)
-Requires:      pkgconfig(Qt6WaylandClient
+Requires:      Qt6WaylandClient
 
 %description
 
