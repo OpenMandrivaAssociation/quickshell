@@ -58,7 +58,6 @@ Requires:      pkgconfig(Qt6Qml)
 Requires:      pkgconfig(Qt6Quick)
 Requires:      pkgconfig(Qt6QuickControls2)
 Requires:      pkgconfig(Qt6Widgets)
-Requires:      pkgconfig(Qt6ShaderTools)
 Requires:      lib64Qt6WaylandClient
 
 %description
