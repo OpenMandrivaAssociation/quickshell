@@ -42,6 +42,25 @@ BuildRequires:      pkgconfig(wayland-protocols)
 BuildRequires:      pkgconfig(wayland-scanner)
 BuildRequires:      spirv-tools
 
+Requires:      pkgconfig(breakpad)
+Requires:      pkgconfig(CLI11)
+Requires:      pkgconfig(gbm)
+Requires:      pkgconfig(jemalloc)
+Requires:      pkgconfig(libdrm)
+Requires:      pkgconfig(libpipewire-0.3)
+Requires:      pkgconfig(pam)
+Requires:      pkgconfig(wayland-client)
+Requires:      pkgconfig(wayland-protocols)
+Requires:      pkgconfig(wayland-scanner)
+Requires:      spirv-tools
+Requires:      pkgconfig(Qt6Core)
+Requires:      pkgconfig(Qt6Qml)
+Requires:      pkgconfig(Qt6Quick)
+Requires:      pkgconfig(Qt6QuickControls2)
+Requires:      pkgconfig(Qt6Widgets)
+Requires:      pkgconfig(Qt6ShaderTools)
+Requires:      pkgconfig(Qt6WaylandClient
+
 %description
 
 %prep
