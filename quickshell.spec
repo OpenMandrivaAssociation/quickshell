@@ -59,7 +59,6 @@ Requires:      pkgconfig(Qt6Quick)
 Requires:      pkgconfig(Qt6QuickControls2)
 Requires:      pkgconfig(Qt6Widgets)
 Requires:      pkgconfig(wayland-client)
-Requires:      qt6svg
 
 %description
 
