@@ -42,7 +42,7 @@ BuildRequires:      qt6-qtbase-theme-gtk3
 BuildRequires:      cmake(Qt6QmlCore)
 BuildRequires:      pkgconfig(pam)
 BuildRequires:      pkgconfig(wayland-protocols)
-BuildRequires:      pkgconfig(wayland-protocols)
+BuildRequires:      pkgconfig(wlr-protocols)
 
 
 Requires:      pkgconfig(pam)
