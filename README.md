@@ -1,1 +1,1 @@
-Quickshell is missing zwlr_layer_shell_v1 and ext-session-lock-v1. This is causing examples like the activate windows and wlogout to not function correctly. 
+Quickshell is  unable to use examples like the activate windows. Error in the script relating to QML componet

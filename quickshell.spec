@@ -3,7 +3,7 @@
 %global bumpver 1
 
 Name:               quickshell
-Version:            0~%{bumpver}.git%{quickshell_shortcommit}
+Version:            1~%{bumpver}.git%{quickshell_shortcommit}
 Release:            6
 Summary:            Flexible QtQuick based desktop shell toolkit
 
@@ -19,7 +19,6 @@ BuildOption:    -DCMAKE_BUILD_TYPE=RelWithDebInfo
 BuildOption:    -DDISTRIBUTOR="OpenMandriva LX"
 BuildOption:    -DDISTRIBUTOR_DEBUGINFO_AVAILABLE=YES
 BuildOption:    -DINSTALL_QML_PREFIX="lib64/qt6/qml"
-BuildOption:    -DINSTALL_QMLDIR="%{_qtdir}/qml"
 BuildOption:    -DWAYLAND_WLR_LAYERSHELL=OFF
 BuildOption:    -DWAYLAND_SESSION_LOCK=OFF
 
@@ -42,6 +41,8 @@ BuildRequires:      cmake(Qt6QmlNetwork)
 BuildRequires:      qt6-qtbase-theme-gtk3
 BuildRequires:      cmake(Qt6QmlCore)
 BuildRequires:      pkgconfig(pam)
+BuildRequires:      pkgconfig(wayland-protocols)
+BuildRequires:      pkgconfig(wlr-protocols)
 
 
 Requires:      pkgconfig(pam)
