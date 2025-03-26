@@ -33,6 +33,7 @@ BuildRequires:      cmake(Qt6ShaderTools)
 BuildRequires:      cmake(Qt6WaylandClient)
 BuildRequires:      pkgconfig(CLI11)
 BuildRequires:      pkgconfig(breakpad)
+BuildRequires:      spirv-tools
 BuildRequires:      pkgconfig(gbm)
 BuildRequires:      pkgconfig(libdrm)
 BuildRequires:      pkgconfig(libpipewire-0.3)
@@ -43,6 +44,7 @@ BuildRequires:      cmake(Qt6QmlCore)
 BuildRequires:      pkgconfig(pam)
 BuildRequires:      pkgconfig(wayland-protocols)
 BuildRequires:      pkgconfig(wlr-protocols)
+
 
 
 Requires:      pkgconfig(pam)
