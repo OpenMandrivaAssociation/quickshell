@@ -1,17 +1,15 @@
-%global commit      eabf79ebb640dbfab6a3ff4639db65e64e05d941
+%global commit      ed528268e0c0a2f6be2b5aca7089ebc3e214d446
 %global quickshell_shortcommit %(c=%{commit}; echo ${c:0:7})
 %global bumpver 1
 
 Name:               quickshell
 Version:            1~%{bumpver}.git%{quickshell_shortcommit}
-Release:            8
+Release:            1
 Summary:            Flexible QtQuick based desktop shell toolkit
 License:            LGPL-3.0-only AND GPL-3.0-only
 URL:                https://github.com/quickshell-mirror/quickshell
-# {url}/archive/{commit}/{name}-{commit}.tar.gz
-# qt69.0 is temporary change for Source0
-Source0:            %{url}/archive/refs/heads/qt6.9.0.zip
-Group:              Windows Manager/Bar
+Source0:            %{url}/archive/%{commit}/%{name}-%{commit}.tar.gz
+Group:              Window Manager/Bar
 
 BuildSystem:    cmake
 BuildOption:    -GNinja
@@ -50,7 +48,7 @@ Requires:      pkgconfig(pam)
 %description
 
 %prep
-%autosetup -n %{name}-qt6.9.0 -p1
+%autosetup -n %{name}-%{commit} -p1
 
 %files
 %license LICENSE LICENSE-GPL
