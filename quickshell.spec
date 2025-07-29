@@ -1,6 +1,6 @@
 
 Name:               quickshell
-Version:            0.1.0
+Version:            0.2.0
 Release:            1
 Summary:            Flexible QtQuick based desktop shell toolkit
 License:            LGPL-3.0-only AND GPL-3.0-only
@@ -39,6 +39,7 @@ BuildRequires:      pkgconfig(pam)
 BuildRequires:      pkgconfig(wayland-protocols)
 BuildRequires:      pkgconfig(wlr-protocols)
 BuildRequires:      spirv-tools
+BuildRequires:      pkgconfig(Qt6QmlAssetDownloader)
 
 Requires:      pkgconfig(pam)
 
@@ -52,3 +53,5 @@ Requires:      pkgconfig(pam)
 %{_bindir}/qs
 %{_bindir}/quickshell
 %{_qtdir}/qml/*
+%{_datadir}/applications/org.quickshell.desktop
+%{_iconsdir}/hicolor/scalable/apps/org.quickshell.svg
