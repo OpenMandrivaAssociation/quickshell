@@ -1,4 +1,4 @@
-
+# Package is broken due to Qt 6.10 changes.
 Name:               quickshell
 Version:            0.2.0
 Release:            2
@@ -6,16 +6,17 @@ Summary:            Flexible QtQuick based desktop shell toolkit
 License:            LGPL-3.0-only AND GPL-3.0-only
 URL:                https://github.com/quickshell-mirror/quickshell
 Source0:            %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
+Patch0:		    Build.patch
 Group:              Window Manager/Bar
 
 BuildSystem:    cmake
 BuildOption:    -GNinja
-BuildOption:    -DBUILD_SHARED_LIBS=OFF 
+BuildOption:    -DBUILD_SHARED_LIBS=OFF
 BuildOption:    -DCMAKE_BUILD_TYPE=RelWithDebInfo
 BuildOption:    -DDISTRIBUTOR="OpenMandriva LX"
 BuildOption:    -DDISTRIBUTOR_DEBUGINFO_AVAILABLE=YES
-BuildOption:    -DINSTALL_QMLDIR="lib64/qt6/qml"
-BuildOption:    -DINSTALL_QML_PREFIX="lib64/qt6/qml"
+BuildOption:    -DINSTALL_QMLDIR="%{_qtdir}/qml"
+BuildOption:    -DINSTALL_QML_PREFIX="%{_qtdir}/qml"
 
 BuildRequires:      cmake
 BuildRequires:      cmake(Qt6Core)
