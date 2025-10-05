@@ -10,7 +10,6 @@ License:            LGPL-3.0-only AND GPL-3.0-only
 URL:                https://github.com/quickshell-mirror/quickshell
 Source0:            %{url}/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
 #%{url}/archive/v%{version}/%{name}-%{version}.tar.gz
-
 Group:              Window Manager/Bar
 
 BuildSystem:    cmake
@@ -46,6 +45,7 @@ BuildRequires:      pkgconfig(wayland-protocols)
 BuildRequires:      pkgconfig(wlr-protocols)
 BuildRequires:      spirv-tools
 BuildRequires:      pkgconfig(Qt6QmlAssetDownloader)
+BuildRequires:	    vulkan-headers
 
 Requires:      pkgconfig(pam)
 
