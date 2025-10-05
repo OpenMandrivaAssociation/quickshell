@@ -3,8 +3,8 @@
 %global bumpver 1
 
 Name:               quickshell
-Version:            0.2.0~%{bumpver}.git%{shortcommit}
-Release:            1
+Version:            0.2.0
+Release:            2
 Summary:            Flexible QtQuick based desktop shell toolkit
 License:            LGPL-3.0-only AND GPL-3.0-only
 URL:                https://github.com/quickshell-mirror/quickshell
