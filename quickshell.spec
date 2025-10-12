@@ -3,13 +3,13 @@
 %global bumpver 1
 
 Name:               quickshell
-Version:            0.2.0
-Release:            2
+Version:            0.2.1
+Release:            1
 Summary:            Flexible QtQuick based desktop shell toolkit
 License:            LGPL-3.0-only AND GPL-3.0-only
 URL:                https://github.com/quickshell-mirror/quickshell
-Source0:            %{url}/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
-#%{url}/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:            %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
+#%{url}/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
 Group:              Window Manager/Bar
 
 BuildSystem:    cmake
@@ -52,7 +52,8 @@ Requires:      pkgconfig(pam)
 %description
 
 %prep
-%autosetup -p1 -n %{name}-%{commit}
+%autosetup -p1
+#-n %{name}-%{commit}
 
 %files
 %license LICENSE LICENSE-GPL
