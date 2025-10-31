@@ -41,14 +41,87 @@ BuildRequires:	pkgconfig(wlr-protocols)
 BuildRequires:	spirv-tools
 BuildRequires:	cmake(VulkanHeaders)
 BuildRequires:	pkgconfig(pam)
+Recommends:	(%{name}-hyprland = %{EVRD} if hyprland)
+Recommends:	(%{name}-i3 = %{EVRD} if i3)
+Recommends:	(%{name}-wayland = %{EVRD} if %{mklibname wayland-client})
+Recommends:	(%{name}-x11 = %{EVRD} if x11-server)
+Recommends:	(%{name}-greetd = %{EVRD} if greetd)
 
 %description
 Flexible QtQuick based desktop shell toolkit
+
+%package hyprland
+Summary:	Hyprland integration for %{name}
+Requires:	%{name} = %{EVRD}
+Requires:	hyprland
+
+%description hyprland
+Hyprland integration for %{name}
+
+%package i3
+Summary:	i3 integration for %{name}
+Requires:	%{name} = %{EVRD}
+Requires:	i3
+
+%description i3
+i3 integration for %{name}
+
+%package wayland
+Summary:	Wayland integration for %{name}
+Requires:	%{name} = %{EVRD}
+
+%description wayland
+Wayland integration for %{name}
+
+%package x11
+Summary:	X11 integration for %{name}
+Requires:	%{name} = %{EVRD}
+Requires:	x11-server
+
+%description x11
+X11 integration for %{name}
+
+%package greetd
+Summary:	GreetD integration for %{name}
+Requires:	%{name} = %{EVRD}
+Requires:	greetd
+
+%description greetd
+GreetD integration for %{name}
 
 %files
 %license LICENSE LICENSE-GPL
 %{_bindir}/qs
 %{_bindir}/quickshell
-%{_qtdir}/qml/*
 %{_datadir}/applications/org.quickshell.desktop
 %{_iconsdir}/hicolor/scalable/apps/org.quickshell.svg
+%dir %{_qtdir}/qml/Quickshell
+%{_qtdir}/qml/Quickshell/Bluetooth
+%{_qtdir}/qml/Quickshell/DBusMenu
+%{_qtdir}/qml/Quickshell/Io
+%dir %{_qtdir}/qml/Quickshell/Services
+%{_qtdir}/qml/Quickshell/Services/Mpris
+%{_qtdir}/qml/Quickshell/Services/Notifications
+%{_qtdir}/qml/Quickshell/Services/Pam
+%{_qtdir}/qml/Quickshell/Services/Pipewire
+%{_qtdir}/qml/Quickshell/Services/SystemTray
+%{_qtdir}/qml/Quickshell/Services/UPower
+%{_qtdir}/qml/Quickshell/Widgets
+%{_qtdir}/qml/Quickshell/_Window
+%{_qtdir}/qml/Quickshell/qmldir
+%{_qtdir}/qml/Quickshell/quickshell-core.qmltypes
+
+%files hyprland
+%{_qtdir}/qml/Quickshell/Hyprland
+
+%files i3
+%{_qtdir}/qml/Quickshell/I3
+
+%files wayland
+%{_qtdir}/qml/Quickshell/Wayland
+
+%files x11
+%{_qtdir}/qml/Quickshell/X11
+
+%files greetd
+%{_qtdir}/qml/Quickshell/Services/Greetd
