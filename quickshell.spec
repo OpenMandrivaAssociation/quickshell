@@ -1,6 +1,6 @@
 Name:		quickshell
 Version:	0.2.1
-Release:	3
+Release:	4
 Summary:	Flexible QtQuick based desktop shell toolkit
 License:	LGPL-3.0-only AND GPL-3.0-only
 URL:		https://github.com/quickshell/quickshell
@@ -47,6 +47,8 @@ Recommends:	(%{name}-i3 = %{EVRD} if i3)
 Recommends:	(%{name}-wayland = %{EVRD} if %{mklibname wayland-client})
 Recommends:	(%{name}-x11 = %{EVRD} if x11-server)
 Recommends:	(%{name}-greetd = %{EVRD} if greetd)
+
+Obsoletes:	quickshell = 1~1.gited52826-1
 
 %description
 Flexible QtQuick based desktop shell toolkit
