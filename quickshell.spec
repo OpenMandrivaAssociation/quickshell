@@ -14,6 +14,8 @@ BuildOption:	-DDISTRIBUTOR="OpenMandriva LX"
 BuildOption:	-DDISTRIBUTOR_DEBUGINFO_AVAILABLE=YES
 BuildOption:	-DINSTALL_QMLDIR="%{_qtdir}/qml"
 BuildOption:	-DINSTALL_QML_PREFIX="%{_qtdir}/qml"
+# Clang rejects the PCH when signed-overflow flags differ from the TUs.
+BuildOption:	-DNO_PCH=ON
 
 BuildRequires:	cmake
 BuildRequires:	cmake(Qt6Core)
