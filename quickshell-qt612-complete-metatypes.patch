@@ -1,0 +1,57 @@
+diff -Naur a/src/wayland/hyprland/ipc/hyprland_toplevel.hpp b/src/wayland/hyprland/ipc/hyprland_toplevel.hpp
+--- a/src/wayland/hyprland/ipc/hyprland_toplevel.hpp
++++ b/src/wayland/hyprland/ipc/hyprland_toplevel.hpp
+@@ -119,3 +119,9 @@
+ };
+ 
+ } // namespace qs::hyprland::ipc
++
++// Included after the class is complete. workspace.hpp needs a complete
++// HyprlandToplevel (ObjectModel member), while Qt 6.12 moc instantiates
++// is_complete<> for pointer property types. That trait is cached for the
++// translation unit, so the pointed-to types must already be defined here.
++#include "monitor.hpp"
+diff -Naur a/src/wayland/hyprland/ipc/monitor.hpp b/src/wayland/hyprland/ipc/monitor.hpp
+--- a/src/wayland/hyprland/ipc/monitor.hpp
++++ b/src/wayland/hyprland/ipc/monitor.hpp
+@@ -9,6 +9,7 @@
+ #include <qtypes.h>
+ 
+ #include "connection.hpp"
++#include "workspace.hpp"
+ 
+ namespace qs::hyprland::ipc {
+ 
+diff -Naur a/src/x11/i3/ipc/monitor.hpp b/src/x11/i3/ipc/monitor.hpp
+--- a/src/x11/i3/ipc/monitor.hpp
++++ b/src/x11/i3/ipc/monitor.hpp
+@@ -4,6 +4,7 @@
+ #include <qproperty.h>
+ 
+ #include "connection.hpp"
++#include "workspace.hpp"
+ 
+ namespace qs::i3::ipc {
+ 
+diff -Naur a/src/x11/i3/ipc/qml.hpp b/src/x11/i3/ipc/qml.hpp
+--- a/src/x11/i3/ipc/qml.hpp
++++ b/src/x11/i3/ipc/qml.hpp
+@@ -7,6 +7,7 @@
+ #include "../../../core/doc.hpp"
+ #include "../../../core/qmlscreen.hpp"
+ #include "connection.hpp"
++#include "monitor.hpp"
+ 
+ namespace qs::i3::ipc {
+ 
+diff -Naur a/src/x11/i3/ipc/workspace.hpp b/src/x11/i3/ipc/workspace.hpp
+--- a/src/x11/i3/ipc/workspace.hpp
++++ b/src/x11/i3/ipc/workspace.hpp
+@@ -5,6 +5,7 @@
+ #include <qtypes.h>
+ 
+ #include "connection.hpp"
++#include "monitor.hpp"
+ 
+ namespace qs::i3::ipc {
+ 

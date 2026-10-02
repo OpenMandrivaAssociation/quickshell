@@ -5,6 +5,10 @@ Summary:	Flexible QtQuick based desktop shell toolkit
 License:	LGPL-3.0-only AND GPL-3.0-only
 URL:		https://github.com/quickshell/quickshell
 Source0:	https://github.com/quickshell/quickshell/archive/v%{version}/%{name}-%{version}.tar.gz
+# Qt 6.12 moc caches is_complete<> for the whole translation unit. The Hyprland
+# and i3 IPC headers only forward-declare the types used in pointer properties,
+# so that cache latches false and later meta-object generation fails.
+Patch0:		quickshell-qt612-complete-metatypes.patch
 Group:		Window Manager/Bar
 
 BuildSystem:	cmake
