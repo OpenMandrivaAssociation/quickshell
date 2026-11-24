@@ -1,15 +1,15 @@
 Name:		quickshell
-Version:	0.2.1
-Release:	7
+Version:	0.3.2
+Release:	1
 Summary:	Flexible QtQuick based desktop shell toolkit
 License:	LGPL-3.0-only AND GPL-3.0-only
-URL:		https://github.com/quickshell/quickshell
-Source0:	https://github.com/quickshell/quickshell/archive/v%{version}/%{name}-%{version}.tar.gz
+URL:		https://quickshell.org/
+Source0:	https://git.outfoxxed.me/quickshell/quickshell/archive/v%{version}/%{name}-v%{version}.tar.gz
 # Qt 6.12 moc caches is_complete<> for the whole translation unit. The Hyprland
 # and i3 IPC headers only forward-declare the types used in pointer properties,
 # so that cache latches false and later meta-object generation fails.
-Patch0:		quickshell-qt612-complete-metatypes.patch
-Group:		Window Manager/Bar
+#Patch0:		quickshell-qt612-complete-metatypes.patch
+Group:		System/Libraries
 
 BuildSystem:	cmake
 BuildOption:	-DBUILD_SHARED_LIBS=OFF
@@ -20,20 +20,22 @@ BuildOption:	-DINSTALL_QMLDIR="%{_qtdir}/qml"
 BuildOption:	-DINSTALL_QML_PREFIX="%{_qtdir}/qml"
 # Clang rejects the PCH when signed-overflow flags differ from the TUs.
 BuildOption:	-DNO_PCH=ON
+BuildOption:	-DCRASH_HANDLER=OFF
 
 BuildRequires:	cmake
 BuildRequires:	cmake(Qt6Core)
+BuildRequires:	cmake(Qt6DBus)
 BuildRequires:	cmake(Qt6Gui)
+BuildRequires:	cmake(Qt6Network)
 BuildRequires:	cmake(Qt6Qml)
 BuildRequires:	cmake(Qt6Quick)
 BuildRequires:	cmake(Qt6QuickControls2)
 BuildRequires:	cmake(Qt6Widgets)
 BuildRequires:	cmake(Qt6ShaderTools)
 BuildRequires:	cmake(Qt6WaylandClient)
-BuildRequires:	cmake(Qt6LabsSynchronizer)
-BuildRequires:  cmake(Qt6QmlMeta)
 BuildRequires:	pkgconfig(CLI11)
-BuildRequires:	pkgconfig(breakpad)
+# Not packages yet
+#BuildRequires:	cmake(cpptrace)
 BuildRequires:	pkgconfig(gbm)
 BuildRequires:	pkgconfig(libdrm)
 BuildRequires:	pkgconfig(libpipewire-0.3)
@@ -46,6 +48,10 @@ BuildRequires:	pkgconfig(wayland-protocols)
 BuildRequires:	spirv-tools
 BuildRequires:	cmake(VulkanHeaders)
 BuildRequires:	pkgconfig(pam)
+BuildRequires:	pkgconfig(glib-2.0)
+BuildRequires:	pkgconfig(gobject-2.0)
+BuildRequires:	pkgconfig(polkit-agent-1)
+BuildRequires:	pkgconfig(polkit-gobject-1)
 Recommends:	(%{name}-hyprland = %{EVRD} if hyprland)
 Recommends:	(%{name}-i3 = %{EVRD} if i3)
 Recommends:	(%{name}-wayland = %{EVRD} if %{mklibname wayland-client})
@@ -105,6 +111,7 @@ GreetD integration for %{name}
 %dir %{_qtdir}/qml/Quickshell
 %{_qtdir}/qml/Quickshell/Bluetooth
 %{_qtdir}/qml/Quickshell/DBusMenu
+%{_qtdir}/qml/Quickshell/Networking
 %{_qtdir}/qml/Quickshell/Io
 %dir %{_qtdir}/qml/Quickshell/Services
 %{_qtdir}/qml/Quickshell/Services/Mpris
@@ -114,9 +121,11 @@ GreetD integration for %{name}
 %{_qtdir}/qml/Quickshell/Services/SystemTray
 %{_qtdir}/qml/Quickshell/Services/UPower
 %{_qtdir}/qml/Quickshell/Widgets
+%{_qtdir}/qml/Quickshell/WindowManager
 %{_qtdir}/qml/Quickshell/_Window
 %{_qtdir}/qml/Quickshell/qmldir
 %{_qtdir}/qml/Quickshell/quickshell-core.qmltypes
+%{_qtdir}/qml/Quickshell/Services/Polkit
 
 %files hyprland
 %{_qtdir}/qml/Quickshell/Hyprland
